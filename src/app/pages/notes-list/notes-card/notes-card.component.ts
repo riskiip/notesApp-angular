@@ -15,8 +15,8 @@ export class NotesCardComponent implements OnInit {
   constructor(private renderer: Renderer2) { }
 
   ngOnInit() {
-    const style = window.getComputedStyle(this.bodyText.nativeElement, null);
-    const viewableHeight = parseInt(style.getPropertyValue('height'), 10);
+    let style = window.getComputedStyle(this.bodyText.nativeElement, null);
+    let viewableHeight = parseInt(style.getPropertyValue('height'), 10);
 
     if (this.bodyText.nativeElement.scrollHeight > viewableHeight) {
       this.renderer.setStyle(this.truncator.nativeElement, 'display', 'block');

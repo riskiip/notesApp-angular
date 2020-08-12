@@ -7,8 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotesListComponent implements OnInit {
   iniTitle = 'Halo, ini judul';
-  iniBody = 'testing dengan menggunakan hardcode';
-
+  iniBody = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat qui debitis, doloribus autem consectetur ex sit reprehenderit quisquam nostrum minima tempora nisi. Deleniti dolorem eum quis, et ducimus at itaque?';
   constructor() { }
 
   ngOnInit() {
