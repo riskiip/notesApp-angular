@@ -2,10 +2,14 @@
 
   <div class="note-card-content">
 
-    <h1 class="note-card-title">Lorem Ipsum</h1>
+    <h1 class="note-card-title">{{title}}</h1>
 
-    <div class="note-card-body">
-      <p>This is the body of note card</p>
+    <div #bodyText class="note-card-body">
+      <p>{{body}}</p>
+
+      <div #truncator class="fade-out-truncated">
+
+      </div>
     </div>
 
     <div class="x-button">

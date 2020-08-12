@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notes-list.component.scss']
 })
 export class NotesListComponent implements OnInit {
+  iniTitle = 'Halo, ini judul';
+  iniBody = 'testing dengan menggunakan hardcode';
 
   constructor() { }
 
