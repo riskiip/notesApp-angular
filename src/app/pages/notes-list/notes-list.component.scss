@@ -1,9 +1,11 @@
-@import '../../../my-styles.scss';
-
 .main-container {
   display: flex;
   flex-direction: column;
   max-width: 500px;
   margin: auto;
   padding-top: 50px
+}
+
+.note-card-list-container {
+  margin-top: 35px;
 }
