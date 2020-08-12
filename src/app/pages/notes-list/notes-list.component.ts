@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Note } from 'src/app/shared/note.model';
+import { NotesService } from 'src/app/shared/notes.service';
 
 @Component({
   selector: 'app-notes-list',
@@ -6,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notes-list.component.scss']
 })
 export class NotesListComponent implements OnInit {
-  iniTitle = 'Halo, ini judul';
-  iniBody = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat qui debitis, doloribus autem consectetur ex sit reprehenderit quisquam nostrum minima tempora nisi. Deleniti dolorem eum quis, et ducimus at itaque?';
-  constructor() { }
+  notes: Note[] = new Array<Note>();
+
+  constructor(private noteService: NotesService) { }
 
   ngOnInit() {
+    this.notes = this.noteService.getAll();
   }
 
 }
