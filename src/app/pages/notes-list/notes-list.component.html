@@ -14,7 +14,8 @@
   <div class="note-card-list-container">
     <app-notes-card
       *ngFor="let note of notes; index as i"
-      [routerLink]="i"
+      [link]="i"
+      (delete)="deleteNote(i)"
       [title]="note.title"
       [body]="note.body" ></app-notes-card>
   </div>
