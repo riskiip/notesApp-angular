@@ -1,0 +1,33 @@
+@import '../../../my-styles.scss';
+
+.layout-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+
+  .main-content {
+    flex-grow: 1;
+    overflow-y: scroll; // Make the main-content could be scrolled
+  }
+}
+
+.top-bar {
+  width: 100%;
+  height: 68px;
+  background: linear-gradient(to right, $pink, $blue);
+  box-shadow: 0px 0px 10px 0px rgba($color: #000000, $alpha: 0.2);
+
+  // Make the content to center
+  align-items: center;
+  justify-content: center;
+
+  // Prevent flex to shrink
+  display: flex;
+  flex-shrink: 0;
+
+  h1 {
+    color: white;
+    font-size: 24px;
+  }
+}
