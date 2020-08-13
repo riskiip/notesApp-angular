@@ -82,7 +82,7 @@ export class NotesListComponent implements OnInit {
 
   ngOnInit() {
     this.notes = this.noteService.getAll();
-    this.filteredNote = this.notes;
+    this.filteredNote = this.noteService.getAll();
   }
 
   deleteNote(id: number) {
@@ -107,6 +107,9 @@ export class NotesListComponent implements OnInit {
 
     let unique = this.removeDuplicates(allResult);
     this.filteredNote = unique;
+
+    //we do the sort here:
+    this.sortByRelevancy(allResult);
   }
 
   removeDuplicates(arr: Array<any>) : Array<any> {
@@ -129,5 +132,29 @@ export class NotesListComponent implements OnInit {
       }
     });
     return relevantNote;
+  }
+
+  sortByRelevancy(searchResult: Note[]){
+    let noteCountObj: Object = {}
+
+    searchResult.forEach(note => {
+      let noteId = this.noteService.getId(note);
+
+      if (noteCountObj[noteId]) {
+        noteCountObj[noteId] += 1;
+      } else {
+        noteCountObj[noteId] = 1;
+      }
+    });
+
+    this.filteredNote = this.filteredNote.sort((a: Note, b: Note) => {
+      let aId = this.noteService.getId(a);
+      let bId = this.noteService.getId(b);
+
+      let aCount = noteCountObj[aId];
+      let bCount = noteCountObj[bId];
+
+      return bCount - aCount;
+    });
   }
 }
